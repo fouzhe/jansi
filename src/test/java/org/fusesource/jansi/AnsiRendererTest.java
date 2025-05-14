@@ -102,6 +102,14 @@ public class AnsiRendererTest {
     }
 
     @Test
+    public void testRender6() {
+        // "@|@" as the file content, which will cause the END_TOKEN to be found at
+        // position k=1, which is less than j+BEGIN_TOKEN_LEN=2
+        String str = ansi().render("@|@").toString();
+        System.out.println(str);
+    }
+
+    @Test
     public void testRenderNothing() {
         assertEquals("foo", render("foo"));
     }
